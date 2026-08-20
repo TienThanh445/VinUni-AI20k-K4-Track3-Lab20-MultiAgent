@@ -113,5 +113,12 @@ Cách khắc phục (chọn 1 trong 3):
 
 Mỗi nhóm trả lời 2 câu:
 
-1. Case nào nên dùng multi-agent? Vì sao?
-2. Case nào không nên dùng multi-agent? Vì sao?
+1. **Case nào nên dùng multi-agent? Vì sao?**
+   - **Nghiên cứu chuyên sâu & tổng hợp đa nguồn:** Cần phân rã nhiệm vụ thành các khâu độc lập (thu thập dữ liệu mới nhất $\rightarrow$ đánh giá độ tin cậy bằng chứng $\rightarrow$ tổng hợp bài viết học thuật có trích dẫn), giúp tránh quá tải context window và loại bỏ ảo giác (hallucination).
+   - **Quy trình đòi hỏi kiểm chứng độc lập (Independent Verification):** Tách rời vai trò tạo nội dung và phản biện/kiểm tra chéo nhằm loại bỏ thiên kiến tự xác nhận (confirmation bias).
+   - **Hệ thống điều phối nhiều công cụ chuyên biệt (Multi-tool Orchestration):** Mỗi agent quản lý một tập tool riêng giúp prompt tinh gọn và tăng độ chính xác khi gọi công cụ.
+
+2. **Case nào không nên dùng multi-agent? Vì sao?**
+   - **Tác vụ đơn giản, một bước:** Tóm tắt ngắn, dịch thuật cơ bản, giải thích hàm code. Single-Agent đã giải quyết tốt trong vài giây với chi phí rẻ hơn nhiều.
+   - **Ứng dụng yêu cầu phản hồi thời gian thực (<2 giây):** Multi-agent có độ trễ cao (do handoff qua nhiều bước LLM tuần tự), không phù hợp cho Voice Assistant hay Auto-complete code.
+   - **Ngân sách token và tài nguyên hạn chế:** Chi phí token và rủi ro chạm Rate Limit tăng theo số lượng agent trong vòng lặp.
